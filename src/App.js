@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useEffect, useState} from 'react';
+import Axios from 'axios';
+import Header from './component/Header';
+import CovidTable from './component/CovidTable';
+import DoughnutChart from './component/DoughnutChart';
+import LineChart from './component/LineChart';
+import MapHeader from './component/MapHeader';
+import MapDetails from './component/MapDetails';
 
-function App() {
+const App = () => {
+
+  const [list,setList] = useState({});
+
+  async function getList(){
+    const response = await Axios.get("https://api.covid19india.org/data.json");
+    setList(response);
+  }
+
+  useEffect(() => {
+    getList();
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="chart">
+        <DoughnutChart list={list}/>
+        <LineChart list={list}/>
+      </div>
+      <CovidTable list={list}/>
+      <MapHeader />
+      <MapDetails list={list} />
+    </>
   );
 }
 

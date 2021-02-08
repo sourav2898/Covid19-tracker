@@ -1,13 +1,186 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header, .map_header{
+    margin: 20px;
+}
+
+.header h1, .map_header h1{
+    font: normal normal 800 42px/52px Montserrat;
+    color: #333;
+}
+
+.header p, .map_header p{
+    font: normal normal 600 20px/24px Montserrat;
+    color: #333;
+}
+
+.table{
+    width: 80%;
+    height: 500px;
+    overflow-y: scroll;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.table table, .table table tr th, .table table tr td{
+    background-color: #fff;
+}
+
+.table table tr th{
+    color: crimson;
+    text-align: left;
+    padding: 5px;
+}
+
+.table table tr td{
+    font: normal normal 600 14px/18px Montserrat;
+    color: #666;
+    padding: 5px;
+}
+
+.chart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    /* height: 250px; */
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin: 10px auto;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.chart .doughnut{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 550px;
+    background: #fff;
+}
+
+.chart .doughnut .confirmed{
+    position: absolute;
+    top: 140px;
+    left: 230px;
+}
+
+.chart .doughnut .labels{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+}
+
+.chart .doughnut .labels p{
+    margin-left: 10px;
+    background: transparent;
+}
+
+.chart .doughnut .confirmed p:first-child{
+    font: normal normal 800 18px/22px Montserrat;
+    color: #222;
+    text-align: center;
+}
+
+.chart .doughnut .confirmed p:last-child{
+    font: normal normal 600 18px/22px Montserrat;
+    color: #666;
+}
+
+.chart .doughnut .labels .active,.chart .doughnut .labels .deceased,.chart .doughnut .labels .recovered{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.chart .doughnut .labels .active{
+    background-color: blue;
+}
+
+.chart .doughnut .labels .deceased{
+    background-color: gray;
+}
+
+.chart .doughnut .labels .recovered{
+    background-color: green;
+}
+
+.chart .line{
+    background: #fff;
+}
+
+.mapdetails{
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    width: 80%;
+    margin: 20px auto 100px auto;
+    padding: 20px;
+}
+
+.mapdetails .details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin: 10px;
+}
+
+.mapdetails .details .confirmed,.mapdetails .details .confirmed p{
+    font: normal normal 600 18px/22px Montserrat;
+    background-color: lightsalmon;
+    color: crimson;
+}
+.mapdetails .details .active,.mapdetails .details .active p{
+    font: normal normal 600 18px/22px Montserrat;
+    background-color: lightskyblue;
+    color: darkslateblue;
+}
+.mapdetails .details .recovered,.mapdetails .details .recovered p{
+    font: normal normal 600 18px/22px Montserrat;
+    background-color: lightgreen;
+    color: green;
+}
+.mapdetails .details .deaths,.mapdetails .details .deaths p{
+    font: normal normal 600 18px/22px Montserrat;
+    background-color: lightgray;
+    color: gray;
+}
+
+.mapdetails .details .confirmed,.mapdetails .details .active,.mapdetails .details .recovered,.mapdetails .details .deaths{
+    border-radius: 10px;
+    padding: 12px 10px 12px 5px;
+    width: 150px;
+}
+
+.mapdetails .updates{
+    text-align: right;
+    margin: 20px;
+    font: normal normal 600 18px/22px Montserrat;
+    background-color: #fff;
+}
+
+.mapdetails .updates p:first-child{
+    background-color: #fff;
+    color: lightgreen;
+}
+.mapdetails .updates p:last-child{
+    color: green;
+    background-color: #fff;
+}
+
+.india_map{
+    background-color: #fff;
 }
