@@ -184,3 +184,33 @@
 .india_map{
     background-color: #fff;
 }
+
+@media only screen and (max-width: 800px) {
+    .chart {
+        background-color: transparent;
+        width: 100%;
+    }   
+
+    .chart .doughnut .confirmed{
+        top: 55px;
+        left: 130px;
+    }
+
+    .chart .doughnut .confirmed p {
+        font: normal normal 800 10px/14px Montserrat;
+    }
+
+    .chart .doughnut .labels{
+        display: flex;
+        top: 0;
+    }
+    
+    .mapdetails .details .confirmed,.mapdetails .details .active,.mapdetails .details .recovered,.mapdetails .details .deaths{
+        width: 110px;
+    }
+
+    .chart .doughnut .confirmed {
+        top: 90px;
+        left: 155px;
+    }
+}
