@@ -13,26 +13,31 @@ const App = () => {
   // console.log(csv);
   async function getList(){
     const response = await Axios.get("https://api.covid19india.org/data.json");
-    setList(response);
-  }
-
-  const getJson = () => {
     const cjson = require('compressed-json');
 
-    const compressed = cjson.compress(list);
+    const compressed = cjson.compress(response);
     const restored = cjson.decompress(compressed);
-
-    const compressedString = cjson.compress.toString(list);
-    const restoredFromString = cjson.decompress.fromString(compressedString);
-    console.log(compressed,"compressed");
-    console.log(restored,"restored");
-    console.log(compressedString,"compressedString");
-    console.log(restoredFromString,"restoredFromString");
+    // console.log(restored);
+    setList(restored);
   }
+
+  // const getJson = () => {
+  //   const cjson = require('compressed-json');
+
+  //   const compressed = cjson.compress(list);
+  //   const restored = cjson.decompress(compressed);
+
+  //   const compressedString = cjson.compress.toString(list);
+  //   const restoredFromString = cjson.decompress.fromString(compressedString);
+  //   console.log(compressed,"compressed");
+  //   console.log(restored,"restored");
+  //   console.log(compressedString,"compressedString");
+  //   console.log(restoredFromString,"restoredFromString");
+  // }
 
   useEffect(() => {
     getList();
-    getJson();
+    // getJson();
   }, [])
 
   return (
