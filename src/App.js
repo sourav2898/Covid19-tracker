@@ -6,8 +6,6 @@ import DoughnutChart from './component/DoughnutChart';
 import LineChart from './component/LineChart';
 import MapHeader from './component/MapHeader';
 import MapDetails from './component/MapDetails';
-import csv from './result.csv';
-import csvToJson from 'convert-csv-to-json';
 
 const App = () => {
 
@@ -19,26 +17,17 @@ const App = () => {
   }
 
   const getJson = () => {
-    var lines=csv.split("\n");
-    console.log(lines);
-    var result = [];
+    const cjson = require('compressed-json');
 
-    var headers=lines[0].split(",");
-    console.log(headers);
-    for(var i=1;i<lines.length;i++){
+    const compressed = cjson.compress(list);
+    const restored = cjson.decompress(compressed);
 
-      var obj = {};
-      var currentline=lines[i].split(",");
-
-      for(var j=0;j<headers.length;j++){
-        obj[headers[j]] = currentline[j];
-      }
-
-      result.push(obj);
-
-    }
-    console.log(result);
-    console.log(JSON.stringify(result)); //JSON
+    const compressedString = cjson.compress.toString(list);
+    const restoredFromString = cjson.decompress.fromString(compressedString);
+    console.log(compressed,"compressed");
+    console.log(restored,"restored");
+    console.log(compressedString,"compressedString");
+    console.log(restoredFromString,"restoredFromString");
   }
 
   useEffect(() => {
